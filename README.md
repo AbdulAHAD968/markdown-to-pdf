@@ -1,12 +1,15 @@
-# 🍄 Super PDF World
+# Super PDF World
 
 **Super PDF World** is a serverless, retro-themed web application that converts **Markdown** and **HTML** into high-quality PDFs. 
 Built with **Next.js** and **Puppeteer**, it features a nostalgic Super Mario 8-bit aesthetic, live split-screen previews, and a serverless architecture designed for Vercel.
 
-![Super PDF World Banner](public/banner-placeholder.png) 
-*(Note: Add a screenshot here!)*
+---
 
-## ✨ Features
+![Super PDF World Banner](public/image.png) 
+
+---
+
+## Features
 
 - **Dual Worlds**: 
   - **World 1-1**: Markdown Editor.
@@ -17,7 +20,17 @@ Built with **Next.js** and **Puppeteer**, it features a nostalgic Super Mario 8-
 - **Retro Theme**: Fully styled with NES-inspired CSS, "Press Start 2P" fonts, and 8-bit animations.
 - **Privacy Focused**: No data is stored. Documents are generated on-the-fly and immediately discarded.
 
-## 🛠️ Tech Stack
+---
+
+![Super PDF World Banner](public/image1.png) 
+
+---
+
+![Super PDF World Banner](public/image2.png) 
+
+---
+
+## Tech Stack
 
 - **Framework**: [Next.js 14+](https://nextjs.org/) (App Router)
 - **Styling**: CSS Modules, Google Fonts (Press Start 2P, VT323)
@@ -26,10 +39,12 @@ Built with **Next.js** and **Puppeteer**, it features a nostalgic Super Mario 8-
 - **Markdown Parsing**: [react-markdown](https://github.com/remarkjs/react-markdown)
 - **Icons**: [Lucide React](https://lucide.dev/)
 
-## 🚀 Getting Started
+---
+
+## Getting Started
 
 ### Prerequisites
-- Node.js 18+ installed.
+- Node.js 20+ installed.
 
 ### Installation
 
@@ -47,12 +62,13 @@ Built with **Next.js** and **Puppeteer**, it features a nostalgic Super Mario 8-
 3.  **Run locally**:
     ```bash
     npm run dev
-    ```
     Open [http://localhost:3000](http://localhost:3000).
 
 > **Note**: In local development, the app uses your local Chrome installation. Ensure you have Chrome installed at the default path or update `app/api/pdf/route.js` if needed.
 
-## ☁️ Deployment
+---
+
+## Deployment
 
 This project is optimized for **Vercel**.
 
@@ -62,20 +78,24 @@ This project is optimized for **Vercel**.
 
 *The logic automatically switches between local Chrome (dev) and `@sparticuz/chromium-min` (production).*
 
-## 🛡️ Privacy
+---
+
+## Privacy
 
 This application is **stateless**.
 - No files are saved to a database or storage bucket.
 - Input content is sent to the serverless function, rendered to PDF, returned to the user, and then wiped from memory.
 - No cookies or tracking scripts are used.
 
-## 📬 Contact
+---
+
+## Contact
 
 Created by **Abdul Ahad**.
 
-- 📧 **Email**: [ab.zarinc@gmail.com](mailto:ab.zarinc@gmail.com)
-- 🐙 **GitHub**: [@AbdulAHAD968](https://github.com/AbdulAHAD968)
-- 💼 **LinkedIn**: [abdulahad-zarinc](https://www.linkedin.com/in/abdulahad-zarinc/)
+- **Email**: [ab.zarinc@gmail.com](mailto:ab.zarinc@gmail.com)
+- **GitHub**: [@AbdulAHAD968](https://github.com/AbdulAHAD968)
+- **LinkedIn**: [abdulahad-zarinc](https://www.linkedin.com/in/abdulahad-zarinc/)
 
 ---
-*© 2024 Super PDF World. Power-up your documents!* 🍄⭐️
+*© 2026 Super PDF World. Power-up your documents!* 
