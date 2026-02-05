@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+export const metadata = {
+    description: "Choose your level: World 1-1 (Markdown) or World 1-2 (HTML).",
+};
+
 export default function Home() {
     return (
         <div className="world-select-container">
