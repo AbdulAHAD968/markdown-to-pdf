@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍄 Super PDF World
 
-## Getting Started
+**Super PDF World** is a serverless, retro-themed web application that converts **Markdown** and **HTML** into high-quality PDFs. 
+Built with **Next.js** and **Puppeteer**, it features a nostalgic Super Mario 8-bit aesthetic, live split-screen previews, and a serverless architecture designed for Vercel.
 
-First, run the development server:
+![Super PDF World Banner](public/banner-placeholder.png) 
+*(Note: Add a screenshot here!)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Dual Worlds**: 
+  - **World 1-1**: Markdown Editor.
+  - **World 1-2**: HTML Editor.
+- **Live Preview**: See your rendered content in real-time.
+- **Drag & Drop**: Simply drop `.md` or `.html` files to load them instantly.
+- **Serverless PDF Generation**: Uses `puppeteer-core` and `@sparticuz/chromium-min` to generate high-fidelity PDFs within serverless function limits (50MB).
+- **Retro Theme**: Fully styled with NES-inspired CSS, "Press Start 2P" fonts, and 8-bit animations.
+- **Privacy Focused**: No data is stored. Documents are generated on-the-fly and immediately discarded.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 14+](https://nextjs.org/) (App Router)
+- **Styling**: CSS Modules, Google Fonts (Press Start 2P, VT323)
+- **PDF Engine**: [Puppeteer Core](https://pptr.dev/)
+- **Serverless Chromium**: [@sparticuz/chromium-min](https://github.com/Sparticuz/chromium)
+- **Markdown Parsing**: [react-markdown](https://github.com/remarkjs/react-markdown)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
+- Node.js 18+ installed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/AbdulAHAD968/markdown-to-pdf.git
+    cd markdown-to-pdf
+    ```
 
-## Deploy on Vercel
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.  **Run locally**:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Note**: In local development, the app uses your local Chrome installation. Ensure you have Chrome installed at the default path or update `app/api/pdf/route.js` if needed.
+
+## ☁️ Deployment
+
+This project is optimized for **Vercel**.
+
+1.  Push your code to GitHub.
+2.  Import the project into Vercel.
+3.  Deploy! (No environment variables required).
+
+*The logic automatically switches between local Chrome (dev) and `@sparticuz/chromium-min` (production).*
+
+## 🛡️ Privacy
+
+This application is **stateless**.
+- No files are saved to a database or storage bucket.
+- Input content is sent to the serverless function, rendered to PDF, returned to the user, and then wiped from memory.
+- No cookies or tracking scripts are used.
+
+## 📬 Contact
+
+Created by **Abdul Ahad**.
+
+- 📧 **Email**: [ab.zarinc@gmail.com](mailto:ab.zarinc@gmail.com)
+- 🐙 **GitHub**: [@AbdulAHAD968](https://github.com/AbdulAHAD968)
+- 💼 **LinkedIn**: [abdulahad-zarinc](https://www.linkedin.com/in/abdulahad-zarinc/)
+
+---
+*© 2024 Super PDF World. Power-up your documents!* 🍄⭐️

@@ -72,7 +72,7 @@ export default function HtmlWorld() {
                 </div>
             )}
 
-            
+
             <div style={{
                 padding: '10px 24px',
                 background: 'rgba(0,0,0,0.1)',
@@ -81,10 +81,28 @@ export default function HtmlWorld() {
                 justifyContent: 'space-between',
                 alignItems: 'center'
             }}>
-                <Link href="/" style={{ color: '#000', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold' }}>
-                    <ArrowLeft size={16} /> BACK TO MAP
-                </Link>
-                <button className="nes-btn is-success" onClick={() => setHtml("")} style={{ padding: '0.5rem 1rem', fontSize: '10px' }}>RESET</button>
+                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                    <Link href="/" style={{ color: '#000', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold' }}>
+                        <ArrowLeft size={16} /> BACK TO MAP
+                    </Link>
+                    <label className="nes-btn is-success" style={{ padding: '0.5rem 1rem', fontSize: '10px', margin: 0 }}>
+                        IMPORT HTML
+                        <input
+                            type="file"
+                            accept=".html"
+                            style={{ display: 'none' }}
+                            onChange={(e) => {
+                                const file = e.target.files[0];
+                                if (file) {
+                                    const reader = new FileReader();
+                                    reader.onload = (event) => setHtml(event.target.result);
+                                    reader.readAsText(file);
+                                }
+                            }}
+                        />
+                    </label>
+                </div>
+                <button className="nes-btn" onClick={() => setHtml("")} style={{ padding: '0.5rem 1rem', fontSize: '10px', background: '#fff' }}>RESET</button>
             </div>
 
             <main className="main-content">

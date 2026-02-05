@@ -7,7 +7,7 @@
   --mario-blue: #049CD8;
   --mario-yellow: #FBD000;
   --sky-blue: #9290FF;
-  /* Mario 1 Sky */
+  
   --ground-brown: #E4935D;
   --brick-color: #B45F3D;
 
@@ -25,15 +25,15 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  /* Allow scrolling content */
-  /* Retro Pattern */
+  
+  
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
   background-size: 40px 40px;
 }
 
-/* Scrollbar */
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -48,7 +48,7 @@ body {
   border: 2px solid #000;
 }
 
-/* NES Style Box */
+
 .nes-container {
   background: var(--white);
   border: 4px solid #000;
@@ -57,11 +57,11 @@ body {
     4px -4px 0 #fff,
     -4px 4px 0 #fff,
     4px 4px 0 #fff;
-  /* Basic pixel corners hack */
+  
   position: relative;
 }
 
-/* Buttons */
+
 .nes-btn {
   font-family: 'Press Start 2P', cursive;
   border: 4px solid #000;
@@ -89,22 +89,22 @@ body {
   color: var(--white);
 }
 
-/* Layout */
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* Changed from height to min-height */
+  
   gap: 24px;
 }
 
-/* Editor Specific: Lock Viewport */
+
 .app-container.editor-mode {
   height: 100vh;
   overflow: hidden;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .world-title {
     font-size: 1.5rem;
@@ -152,19 +152,20 @@ body {
   gap: 16px;
 }
 
-/* Ensure content takes available space but respects gap */
+
 .main-content {
   flex: 1;
   display: flex;
   overflow: hidden;
   position: relative;
   background: #fff;
-  margin: 0 24px;
-  /* Added side margins so it doesn't touch edges */
+  margin: 0 24px 24px 24px;
+  
+  
   border: 4px solid #000;
-  /* Added border to main content for better separation */
+  
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
-  /* Editor Background*/
+  
 }
 
 .editor-pane,
@@ -197,7 +198,7 @@ textarea.editor {
   resize: none;
   padding: 24px;
   font-family: 'VT323', monospace;
-  /* Code readable font */
+  
   font-size: 24px;
   line-height: 1.4;
   outline: none;
@@ -210,14 +211,14 @@ textarea.editor {
   background: #fff;
 }
 
-/* Markdown Override */
+
 .markdown-body {
   font-family: 'VT323', monospace;
   font-size: 20px;
   color: #000 !important;
 }
 
-/* Floating Action Button (Coin Block style) */
+
 .fab-container {
   position: absolute;
   bottom: 32px;
@@ -248,21 +249,21 @@ textarea.editor {
   font-size: 32px;
   font-weight: bold;
   color: #D65C28;
-  /* Block shadow color */
+  
 }
 
-/* Home Page specific */
+
 .world-select-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 1;
-  /* Changed from height: 100vh to fit in flex container */
+  
   gap: 48px;
   text-align: center;
   padding-bottom: 24px;
-  /* Reduced since footer adds space */
+  
 }
 
 .world-title {

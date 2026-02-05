@@ -23,7 +23,6 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Invalid type. Must be "markdown" or "html"' }, { status: 400 });
     }
 
-
     const html = `
       <!DOCTYPE html>
       <html>
@@ -47,11 +46,6 @@ export async function POST(req) {
             .markdown-body {
               font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
             }
-            /* If type is HTML, we might want to preserve styles more naturally or allow custom styles? 
-               For now, we wrap in markdown-body for consistency unless it's raw page. 
-               But user might want raw HTML. Let's just wrap it for safety and styling. 
-            */
-            
             @page {
               margin: 0;
             }
@@ -62,7 +56,6 @@ export async function POST(req) {
         </body>
       </html>
     `;
-
 
     let browser;
     const isLocal = process.env.NODE_ENV === 'development';
@@ -91,10 +84,10 @@ export async function POST(req) {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: '40px',
-        bottom: '40px',
-        left: '40px',
-        right: '40px'
+        top: '90px',
+        bottom: '90px',
+        left: '90px',
+        right: '90px'
       }
     });
 
