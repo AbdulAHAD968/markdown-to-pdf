@@ -10,7 +10,7 @@ export const metadata = {
     default: 'Super PDF World - Retro Markdown & HTML to PDF Converter',
   },
   description: 'Convert Markdown and HTML to PDF with a retro Super Mario theme. Free, private, and serverless PDF generation.',
-  metadataBase: new URL('https://superpdfworld.vercel.app'), // Placeholder production URL
+  metadataBase: new URL('https://superpdfworld.vercel.app'),
   keywords: ['markdown to pdf', 'html to pdf', 'pdf converter', 'retro pdf', 'super mario theme', 'serverless pdf', 'puppeteer'],
   authors: [{ name: 'Abdul Ahad', url: 'https://github.com/AbdulAHAD968' }],
   creator: 'Abdul Ahad',
