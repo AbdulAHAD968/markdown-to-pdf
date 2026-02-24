@@ -23,6 +23,12 @@ export default function Home() {
                     <div>WORLD 1-2</div>
                     <div>HTML</div>
                 </Link>
+
+                <Link href="/url" className="level-card" style={{ boxShadow: '8px 8px 0 var(--mario-blue)' }}>
+                    <div className="level-icon">管</div>
+                    <div>WORLD 2-1</div>
+                    <div>WARP PIPE</div>
+                </Link>
             </div>
 
             <div style={{ marginTop: '2rem', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '2px' }}>

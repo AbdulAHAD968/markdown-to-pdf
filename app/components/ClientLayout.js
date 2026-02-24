@@ -7,8 +7,8 @@ import Footer from "./Footer";
 export default function ClientLayout({ children }) {
     const pathname = usePathname();
 
-    
-    const isEditorPage = pathname.startsWith("/markdown") || pathname.startsWith("/html");
+
+    const isEditorPage = pathname.startsWith("/markdown") || pathname.startsWith("/html") || pathname.startsWith("/url");
 
     return (
         <div className={`app-container ${isEditorPage ? 'editor-mode' : ''}`}>

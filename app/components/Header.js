@@ -33,7 +33,7 @@ export default function Header() {
                     }}>🍄</div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <span style={{ fontSize: '20px', lineHeight: '1' }}>SUPER PDF</span>
-                        <span style={{ fontSize: '10px', letterSpacing: '2px', color: '#ffcccb' }}>WORLD 1-1</span>
+                        <span style={{ fontSize: '10px', letterSpacing: '2px', color: '#ffcccb' }}>THE PDF WONDERLAND</span>
                     </div>
                 </Link>
             </div>
