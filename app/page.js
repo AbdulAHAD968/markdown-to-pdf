@@ -29,6 +29,12 @@ export default function Home() {
                     <div>WORLD 2-1</div>
                     <div>WARP PIPE</div>
                 </Link>
+
+                <Link href="/ipynb" className="level-card" style={{ boxShadow: '8px 8px 0 var(--mario-green)' }}>
+                    <div className="level-icon">🧪</div>
+                    <div>WORLD 3-1</div>
+                    <div>JUPYTER WARP</div>
+                </Link>
             </div>
 
             <div style={{ marginTop: '2rem', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '2px' }}>

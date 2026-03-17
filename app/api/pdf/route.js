@@ -33,10 +33,52 @@ export async function POST(req) {
       htmlContent = marked.parse(content);
     } else if (type === 'html') {
       htmlContent = content;
+    } else if (type === 'ipynb') {
+      try {
+        const notebook = JSON.parse(content);
+        let notebookHtml = '';
+        
+        notebook.cells.forEach(cell => {
+          const source = Array.isArray(cell.source) ? cell.source.join('') : cell.source;
+          
+          if (cell.cell_type === 'markdown') {
+            notebookHtml += `<div class="ipynb-cell ipynb-markdown">${marked.parse(source)}</div>`;
+          } else if (cell.cell_type === 'code') {
+            notebookHtml += `<div class="ipynb-cell ipynb-code">`;
+            notebookHtml += `<pre><code class="language-python">${source}</code></pre>`;
+            
+            if (cell.outputs && cell.outputs.length > 0) {
+              notebookHtml += `<div class="ipynb-outputs">`;
+              cell.outputs.forEach(output => {
+                if (output.output_type === 'stream') {
+                  const text = Array.isArray(output.text) ? output.text.join('') : output.text;
+                  notebookHtml += `<pre class="ipynb-output-stream"><code>${text}</code></pre>`;
+                } else if (output.output_type === 'execute_result' || output.output_type === 'display_data') {
+                  if (output.data && output.data['text/plain']) {
+                    const text = Array.isArray(output.data['text/plain']) ? output.data['text/plain'].join('') : output.data['text/plain'];
+                    notebookHtml += `<pre class="ipynb-output-result"><code>${text}</code></pre>`;
+                  }
+                  if (output.data && output.data['image/png']) {
+                    notebookHtml += `<img src="data:image/png;base64,${output.data['image/png']}" class="ipynb-output-image" />`;
+                  }
+                } else if (output.output_type === 'error') {
+                   notebookHtml += `<pre class="ipynb-output-error"><code>${output.ename}: ${output.evalue}</code></pre>`;
+                }
+              });
+              notebookHtml += `</div>`;
+            }
+            notebookHtml += `</div>`;
+          }
+        });
+        
+        htmlContent = notebookHtml;
+      } catch (e) {
+        return NextResponse.json({ error: 'Failed to parse .ipynb file. Ensure it is a valid JSON notebook.' }, { status: 400 });
+      }
     } else if (type === 'url') {
       
     } else {
-      return NextResponse.json({ error: 'Invalid type. Must be "markdown", "html", or "url"' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid type. Must be "markdown", "html", "url", or "ipynb"' }, { status: 400 });
     }
 
     let browser;
@@ -295,6 +337,13 @@ export async function POST(req) {
                 .markdown-body em {
                   font-style: italic;
                 }
+                .ipynb-cell { margin-bottom: 20pt; padding: 10pt; border: 1px solid #eee; border-radius: 4px; }
+                .ipynb-code pre { margin: 0 !important; background: #f8f8f8 !important; border-left: 4px solid #007bff !important; padding: 10pt !important; }
+                .ipynb-outputs { margin-top: 10pt; padding-top: 10pt; border-top: 1px dashed #ddd; }
+                .ipynb-output-stream { background: #f0f0f0 !important; color: #333 !important; font-size: 8pt !important; padding: 5pt !important; margin: 5pt 0 !important; }
+                .ipynb-output-result { background: #fff !important; border: 1px solid #ddd !important; font-size: 8pt !important; padding: 5pt !important; margin: 5pt 0 !important; }
+                .ipynb-output-error { background: #fff0f0 !important; color: #d00 !important; font-size: 8pt !important; padding: 5pt !important; margin: 5pt 0 !important; }
+                .ipynb-output-image { max-width: 100%; height: auto; margin: 10pt 0; display: block; }
               </style>
             </head>
             <body class="markdown-body">
