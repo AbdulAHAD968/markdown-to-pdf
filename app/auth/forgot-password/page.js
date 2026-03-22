@@ -13,18 +13,27 @@ export default function ForgotPasswordPage() {
         e.preventDefault();
         setIsLoading(true);
         try {
-            
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            setNotification({ 
-                message: "IF AN ACCOUNT EXISTS, A RECOVERY LINK HAS BEEN SENT.", 
-                type: "success" 
+            const res = await fetch("/api/auth/forgot-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
             });
+
+            if (res.ok) {
+                setNotification({ 
+                    message: "IF AN ACCOUNT EXISTS, A RECOVERY LINK HAS BEEN SENT.", 
+                    type: "success" 
+                });
+            } else {
+                setNotification({ message: "COULD NOT PROCESS REQUEST", type: "error" });
+            }
         } catch (error) {
             setNotification({ message: "CONNECTION ERROR", type: "error" });
         } finally {
             setIsLoading(false);
         }
     };
+
 
     return (
         <div style={{ 

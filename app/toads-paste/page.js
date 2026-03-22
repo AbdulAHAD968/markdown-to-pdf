@@ -98,7 +98,7 @@ export default function ToadsPaste() {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: '#ffccbb' }}>
       
-      <div style={{
+      <div className="page-toolbar" style={{
         padding: '15px 24px',
         background: '#fff',
         borderBottom: '4px solid #000',
@@ -135,9 +135,9 @@ export default function ToadsPaste() {
         </div>
       </div>
 
-      <main style={{ flex: 1, display: 'flex', overflow: 'hidden', padding: '20px', gap: '20px' }}>
-        
-        <section style={{ flex: 3, display: 'flex', flexDirection: 'column', gap: '15px' }}>
+      <main className="paste-main" style={{ flex: 1, display: 'flex', overflow: 'hidden', padding: '20px', gap: '20px' }}>
+
+        <section className="paste-editor" style={{ flex: 3, display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <div className="nes-container is-rounded with-title" style={{ background: '#fff', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <p className="title">NEW SNIPPET</p>
             <input 
@@ -159,7 +159,7 @@ export default function ToadsPaste() {
         </section>
 
         
-        <section style={{ flex: 1.5, display: 'flex', flexDirection: 'column' }}>
+        <section className="paste-list" style={{ flex: 1.5, display: 'flex', flexDirection: 'column' }}>
           <div className="nes-container is-rounded with-title" style={{ background: '#fff', flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: '10px' }}>
             <p className="title">PASTES</p>
             <div style={{ flex: 1, overflowY: 'auto', paddingRight: '5px' }}>

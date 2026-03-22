@@ -39,18 +39,19 @@ export default function Header() {
                     }}>🍄</div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <span style={{ fontSize: '20px', lineHeight: '1' }}>SUPER PDF</span>
-                        <span style={{ fontSize: '10px', letterSpacing: '2px', color: '#ffcccb' }}>THE PDF WONDERLAND</span>
+                        <span className="header-logo-subtitle" style={{ fontSize: '10px', letterSpacing: '2px', color: '#ffcccb' }}>THE PDF WONDERLAND</span>
                     </div>
                 </Link>
             </div>
-            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
                 <AuthButton />
                 <a href="https://github.com/AbdulAHAD968" target="_blank" className="nes-btn is-primary" style={{
-                    padding: '8px 16px',
-                    fontSize: '10px',
+                    padding: '6px 12px',
+                    fontSize: '9px',
                     background: '#fff',
                     color: '#E52521',
-                    borderColor: '#000'
+                    borderColor: '#000',
+                    whiteSpace: 'nowrap'
                 }}>
                     GITHUB
                 </a>

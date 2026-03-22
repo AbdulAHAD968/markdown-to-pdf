@@ -60,7 +60,7 @@ export default function UrlWorld() {
     return (
         <div style={{ position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', background: 'var(--sky-blue)', zIndex: 1000, overflow: 'hidden' }}>
             
-            <div style={{
+            <div className="page-toolbar" style={{
                 padding: '12px 24px',
                 background: '#fff',
                 borderBottom: '4px solid #000',
@@ -164,7 +164,7 @@ export default function UrlWorld() {
                 </div>
 
                 
-                <div style={{
+                <div className="warp-pipe-deco" style={{
                     position: 'absolute',
                     bottom: '-1rem',
                     left: '50%',

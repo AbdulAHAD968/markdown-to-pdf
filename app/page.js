@@ -6,14 +6,14 @@ export const metadata = {
 
 export default function Home() {
     return (
-        <div className="world-select-container" style={{ padding: '20px', maxWidth: '1000px', margin: '80px auto 0 auto' }}>
+        <div className="world-select-container" style={{ padding: '20px', maxWidth: '1000px', margin: '40px auto 0 auto' }}>
             <div className="world-title" style={{ fontSize: '2.5rem', marginBottom: '40px' }}>
                 SUPER PDF WORLD
             </div>
 
             
             <div style={{ width: '100%', textAlign: 'left', marginBottom: '20px' }}>
-                <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 1-3: PDF POWER-UPS</div>
+                <div className="section-label-title" style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 1-3: PDF POWER-UPS</div>
                 <div style={{ fontSize: '8px', color: '#fff', marginTop: '5px' }}>CONVERT TEXT, CODE, AND WEBSITES TO PDF</div>
             </div>
             
@@ -48,7 +48,7 @@ export default function Home() {
 
             
             <div style={{ width: '100%', textAlign: 'left', marginBottom: '20px' }}>
-                <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 4: COMMUNITY UTILITIES</div>
+                <div className="section-label-title" style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 4: COMMUNITY UTILITIES</div>
                 <div style={{ fontSize: '8px', color: '#fff', marginTop: '5px' }}>STORE AND SHARE FILES OR SNIPPETS</div>
             </div>
 

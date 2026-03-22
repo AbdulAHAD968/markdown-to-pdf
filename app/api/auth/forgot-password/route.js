@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import dbConnect from "@/lib/db";
+import dbConnect from "@/lib/dbConnect";
 import User from "@/models/User";
 import { sendResetPasswordEmail } from "@/lib/mail";
 
@@ -12,18 +12,19 @@ export async function POST(req) {
             return NextResponse.json({ error: "Email is required" }, { status: 400 });
         }
 
+        console.log("Forgot Password Request for:", email);
         await dbConnect();
 
         const user = await User.findOne({ email });
 
-        // For security, don't reveal if user exists or not
         if (!user) {
+            console.log("No user found with email:", email);
             return NextResponse.json({ success: true, message: "If an account exists, a reset link has been sent." });
         }
 
-        // Generate reset token
+        console.log("User found! Generating token...");
         const resetToken = crypto.randomBytes(32).toString("hex");
-        const resetTokenExpiry = new Date(Date.now() + 3600000); // 1 hour from now
+        const resetTokenExpiry = new Date(Date.now() + 3600000); 
 
         user.resetToken = resetToken;
         user.resetTokenExpiry = resetTokenExpiry;

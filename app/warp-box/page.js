@@ -94,7 +94,7 @@ export default function WarpBox() {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: '#5c94fc' }}>
       
-      <div style={{
+      <div className="page-toolbar" style={{
         padding: '15px 24px',
         background: '#fff',
         borderBottom: '4px solid #000',
@@ -144,8 +144,8 @@ export default function WarpBox() {
             INVENTORY ({files.length} ITEMS)
           </div>
 
-          <div className="nes-table-responsive" style={{ border: 'none' }}>
-            <table className="nes-table is-bordered is-centered" style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 8px' }}>
+          <div className="table-scroll" style={{ border: 'none' }}>
+            <table className="nes-table is-bordered is-centered" style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0 8px', minWidth: '500px' }}>
               <thead>
                 <tr style={{ background: '#f8f9fa' }}>
                   <th style={{ fontSize: '10px', border: 'none' }}>ITEM</th>

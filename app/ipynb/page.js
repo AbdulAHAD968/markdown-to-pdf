@@ -104,16 +104,7 @@ export default function JupyterWorld() {
         </div>
       )}
 
-      <div style={{
-        padding: '10px 24px',
-        background: 'rgba(0,0,0,0.1)',
-        borderBottom: '4px solid #000',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '10px'
-      }}>
+      <div className="editor-toolbar">
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <Link href="/" style={{ color: '#000', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold' }}>
             <ArrowLeft size={16} /> BACK TO MAP
@@ -132,7 +123,7 @@ export default function JupyterWorld() {
           </label>
         </div>
 
-        <div style={{ display: 'flex', gap: '20px', alignItems: 'center', background: '#fff', border: '2px solid #000', padding: '5px 15px', borderRadius: '4px' }}>
+        <div className="editor-config-panel" style={{ gap: '12px', borderRadius: '4px' }}>
           <div style={{ fontSize: '10px', fontWeight: 'bold' }}>POTION CONFIG:</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '9px' }}>SIZE:</span>
@@ -171,10 +162,10 @@ export default function JupyterWorld() {
         background: '#e8f5e9',
         position: 'relative'
       }}>
-        <div className="nes-container" style={{ 
-          width: '100%', 
-          maxWidth: '600px', 
-          textAlign: 'center', 
+        <div className="nes-container jupyter-card" style={{
+          width: '100%',
+          maxWidth: '600px',
+          textAlign: 'center',
           padding: '50px',
           background: '#fff',
           boxShadow: '10px 10px 0 #000'
