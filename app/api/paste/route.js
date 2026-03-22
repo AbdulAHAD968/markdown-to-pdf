@@ -13,13 +13,17 @@ export async function POST(req) {
     }
 
     await dbConnect();
+    const expiresAt = !session?.user?.id ? new Date(Date.now() + 24 * 60 * 60 * 1000) : null;
+
     const snippet = await Snippet.create({
       title: title || 'Untitled Snippet',
       content,
       language: language || 'text',
       authorId: session?.user?.id || null,
       visibility: visibility || 'public',
+      expiresAt: expiresAt,
     });
+
 
     return NextResponse.json(snippet);
   } catch (error) {
@@ -36,8 +40,12 @@ export async function GET(req) {
     const query = {
       $or: [
         { visibility: 'public' }
+      ],
+      $and: [
+        { $or: [{ expiresAt: null }, { expiresAt: { $gt: new Date() } }] }
       ]
     };
+
 
     if (session?.user?.id) {
       query.$or.push({ authorId: session.user.id });

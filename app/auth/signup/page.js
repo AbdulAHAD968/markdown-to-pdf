@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Notification from "@/app/components/Notification";
+import "../auth-forms.css";
 
 export default function SignUpPage() {
     const router = useRouter();
@@ -38,24 +39,18 @@ export default function SignUpPage() {
     };
 
     return (
-        <div style={{ 
-            minHeight: '100vh', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            background: 'var(--sky-blue)',
-            padding: '20px'
-        }}>
-            <div style={{ maxWidth: '400px', width: '100%' }}>
-                <div className="nes-container is-rounded" style={{ background: '#fff', padding: '20px' }}>
-                    <h2 style={{ fontSize: '18px', textAlign: 'center', marginBottom: '30px' }}>SIGN UP</h2>
+        <div className="auth-page">
+            <div className="auth-form-container">
+                <div className="auth-form-card">
+                    <div className="auth-form-header">
+                        <h2 className="auth-form-title">⭐ SIGN UP</h2>
+                    </div>
 
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        <div className="nes-field">
-                            <label style={{ fontSize: '12px' }}>NAME</label>
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div className="auth-field">
+                            <label>NAME</label>
                             <input
                                 type="text"
-                                className="nes-input"
                                 placeholder="Mario"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
@@ -63,11 +58,10 @@ export default function SignUpPage() {
                             />
                         </div>
 
-                        <div className="nes-field">
-                            <label style={{ fontSize: '12px' }}>EMAIL</label>
+                        <div className="auth-field">
+                            <label>EMAIL</label>
                             <input
                                 type="email"
-                                className="nes-input"
                                 placeholder="your@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -75,11 +69,10 @@ export default function SignUpPage() {
                             />
                         </div>
 
-                        <div className="nes-field">
-                            <label style={{ fontSize: '12px' }}>PASSWORD</label>
+                        <div className="auth-field">
+                            <label>PASSWORD</label>
                             <input
                                 type="password"
-                                className="nes-input"
                                 placeholder="••••••••"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -89,16 +82,15 @@ export default function SignUpPage() {
 
                         <button
                             type="submit"
-                            className={`nes-btn ${isLoading ? 'is-disabled' : 'is-success'}`}
+                            className={`auth-submit-btn success ${isLoading ? 'disabled' : ''}`}
                             disabled={isLoading}
-                            style={{ marginTop: '10px', fontSize: '12px' }}
                         >
                             {isLoading ? "LOADING..." : "REGISTER"}
                         </button>
                     </form>
 
-                    <div style={{ marginTop: '30px', textAlign: 'center' }}>
-                        <Link href="/auth/signin" style={{ fontSize: '10px', color: '#E52521', textDecoration: 'none' }}>
+                    <div className="auth-links">
+                        <Link href="/auth/signin" className="auth-link danger">
                             ALREADY HAVE AN ACCOUNT? LOGIN
                         </Link>
                     </div>
@@ -106,10 +98,10 @@ export default function SignUpPage() {
             </div>
 
             {notification && (
-                <Notification 
-                    message={notification.message} 
-                    type={notification.type} 
-                    onClose={() => setNotification(null)} 
+                <Notification
+                    message={notification.message}
+                    type={notification.type}
+                    onClose={() => setNotification(null)}
                 />
             )}
         </div>

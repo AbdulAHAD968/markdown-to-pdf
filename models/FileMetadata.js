@@ -32,6 +32,12 @@ const FileMetadataSchema = new mongoose.Schema({
     enum: ['public', 'private'],
     default: 'public',
   },
+  expiresAt: {
+    type: Date,
+    index: { expires: 0 },
+    default: null,
+  },
 }, { timestamps: true });
+
 
 export default mongoose.models.FileMetadata || mongoose.model('FileMetadata', FileMetadataSchema);

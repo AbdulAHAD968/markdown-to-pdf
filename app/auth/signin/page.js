@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Notification from "@/app/components/Notification";
+import "../auth-forms.css";
 
 function SignInForm() {
     const router = useRouter();
@@ -39,16 +40,17 @@ function SignInForm() {
     };
 
     return (
-        <div style={{ maxWidth: '400px', width: '100%', margin: '0 auto' }}>
-            <div className="nes-container is-rounded" style={{ background: '#fff', padding: '20px' }}>
-                <h2 style={{ fontSize: '18px', textAlign: 'center', marginBottom: '30px' }}>SIGN IN</h2>
+        <div className="auth-form-container">
+            <div className="auth-form-card">
+                <div className="auth-form-header">
+                    <h2 className="auth-form-title">🍄 SIGN IN</h2>
+                </div>
 
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                    <div className="nes-field">
-                        <label style={{ fontSize: '12px' }}>EMAIL</label>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="auth-field">
+                        <label>EMAIL</label>
                         <input
                             type="email"
-                            className="nes-input"
                             placeholder="your@email.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -56,11 +58,10 @@ function SignInForm() {
                         />
                     </div>
 
-                    <div className="nes-field">
-                        <label style={{ fontSize: '12px' }}>PASSWORD</label>
+                    <div className="auth-field">
+                        <label>PASSWORD</label>
                         <input
                             type="password"
-                            className="nes-input"
                             placeholder="••••••••"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -70,29 +71,28 @@ function SignInForm() {
 
                     <button
                         type="submit"
-                        className={`nes-btn ${isLoading ? 'is-disabled' : 'is-primary'}`}
+                        className={`auth-submit-btn primary ${isLoading ? 'disabled' : ''}`}
                         disabled={isLoading}
-                        style={{ marginTop: '10px', fontSize: '12px' }}
                     >
                         {isLoading ? "LOADING..." : "LOGIN"}
                     </button>
                 </form>
 
-                <div style={{ marginTop: '30px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                    <Link href="/auth/signup" style={{ fontSize: '10px', color: '#049CD8', textDecoration: 'none' }}>
+                <div className="auth-links">
+                    <Link href="/auth/signup" className="auth-link primary">
                         NEW USER? REGISTER HERE
                     </Link>
-                    <Link href="/auth/forgot-password" style={{ fontSize: '10px', color: '#666', textDecoration: 'none' }}>
+                    <Link href="/auth/forgot-password" className="auth-link secondary">
                         FORGOT PASSWORD?
                     </Link>
                 </div>
             </div>
 
             {notification && (
-                <Notification 
-                    message={notification.message} 
-                    type={notification.type} 
-                    onClose={() => setNotification(null)} 
+                <Notification
+                    message={notification.message}
+                    type={notification.type}
+                    onClose={() => setNotification(null)}
                 />
             )}
         </div>
@@ -101,15 +101,8 @@ function SignInForm() {
 
 export default function SignInPage() {
     return (
-        <div style={{ 
-            minHeight: '100vh', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            background: 'var(--sky-blue)',
-            padding: '20px'
-        }}>
-            <Suspense fallback={<div>LOADING...</div>}>
+        <div className="auth-page">
+            <Suspense fallback={<div className="auth-loading">LOADING...</div>}>
                 <SignInForm />
             </Suspense>
         </div>

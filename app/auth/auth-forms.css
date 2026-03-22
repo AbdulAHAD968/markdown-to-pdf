@@ -1,0 +1,314 @@
+/* ============================================
+   AUTH FORMS STYLES - Super Mario Theme
+   ============================================ */
+
+/* Auth Page Container */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sky-blue);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Auth Form Container */
+.auth-form-container {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Auth Form Card */
+.auth-form-card {
+  background: #fff;
+  padding: 32px;
+  border: 4px solid #000;
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Auth Form Header */
+.auth-form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-form-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--mario-red);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Auth Form Description */
+.auth-form-description {
+  font-size: 11px;
+  color: #666;
+  margin-top: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Form Element */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Field */
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-field label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.auth-field input {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  padding: 12px;
+  border: 3px solid #000;
+  background: #fff;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.auth-field input:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.1),
+              0 0 0 3px var(--mario-blue);
+}
+
+.auth-field input::placeholder {
+  color: #999;
+}
+
+/* Submit Button */
+.auth-submit-btn {
+  margin-top: 12px;
+  font-size: 13px;
+  padding: 14px 24px;
+  font-family: 'Press Start 2P', cursive;
+  border: 4px solid #000;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  box-shadow: 4px 4px 0 #000;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.auth-submit-btn.primary {
+  background-color: var(--mario-red);
+  color: #fff;
+}
+
+.auth-submit-btn.success {
+  background-color: var(--mario-green);
+  color: #fff;
+}
+
+.auth-submit-btn.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 0 #999;
+}
+
+.auth-submit-btn:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.auth-submit-btn:active:not(.disabled) {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Auth Links Section */
+.auth-links {
+  margin-top: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 2px solid #eee;
+}
+
+.auth-link {
+  font-size: 11px;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+.auth-link.primary {
+  color: var(--mario-blue);
+}
+
+.auth-link.secondary {
+  color: #666;
+}
+
+.auth-link.danger {
+  color: var(--mario-red);
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+/* Error State */
+.auth-error-container {
+  text-align: center;
+  padding: 24px;
+}
+
+.auth-error-message {
+  color: var(--mario-red);
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.auth-error-link {
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+/* Loading State */
+.auth-loading {
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  padding: 20px;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .auth-form-card {
+    padding: 28px 24px;
+  }
+
+  .auth-form-title {
+    font-size: 18px;
+  }
+
+  .auth-field input {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .auth-submit-btn {
+    font-size: 11px;
+    padding: 12px 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 16px 12px;
+  }
+
+  .auth-form-container {
+    max-width: 100%;
+  }
+
+  .auth-form-card {
+    padding: 24px 20px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .auth-form-header {
+    margin-bottom: 24px;
+  }
+
+  .auth-form-title {
+    font-size: 16px;
+  }
+
+  .auth-form-description {
+    font-size: 10px;
+    margin-top: 12px;
+  }
+
+  .auth-form {
+    gap: 16px;
+  }
+
+  .auth-field label {
+    font-size: 11px;
+  }
+
+  .auth-field input {
+    font-size: 15px;
+    padding: 10px;
+    border: 3px solid #000;
+  }
+
+  .auth-submit-btn {
+    font-size: 10px;
+    padding: 10px 16px;
+    box-shadow: 3px 3px 0 #000;
+  }
+
+  .auth-submit-btn:hover:not(.disabled) {
+    box-shadow: 4px 4px 0 #000;
+  }
+
+  .auth-links {
+    margin-top: 24px;
+    padding-top: 20px;
+    gap: 12px;
+  }
+
+  .auth-link {
+    font-size: 10px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+  .auth-form-card {
+    padding: 20px 16px;
+  }
+
+  .auth-form-title {
+    font-size: 14px;
+  }
+
+  .auth-field input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .auth-submit-btn {
+    font-size: 9px;
+    padding: 8px 14px;
+  }
+
+  .auth-link {
+    font-size: 9px;
+  }
+}

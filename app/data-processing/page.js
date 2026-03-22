@@ -17,11 +17,12 @@ export default function DataProcessing() {
                     <li style={{ marginBottom: '8px' }}>DELETION: The serverless function terminates, and all memory is wiped.</li>
                 </ul>
 
-                <p>
-                    <strong>Client-Side Only?</strong><br />
-                    While the PDF generation technically happens on a server (because browsers cannot reliably generate high-fidelity PDFs client-side without heavy libraries), the process is ephemeral and stateless. It effectively acts like a client-side tool.
+                <p style={{ marginTop: '24px' }}>
+                    <strong>Data Retention Policy</strong><br />
+                    While our standard conversion process is ephemeral, any items you choose to save in public repositories (Warp Box or Toad's Paste) as a guest are retained for exactly 24 hours. After this period, they are automatically purged from our database and Cloudinary storage. Registered users can manage their own data retention settings for private items.
                 </p>
             </div>
+
         </div>
     );
 }

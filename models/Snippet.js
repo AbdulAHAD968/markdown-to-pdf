@@ -24,8 +24,10 @@ const SnippetSchema = new mongoose.Schema({
   },
   expiresAt: {
     type: Date,
+    index: { expires: 0 },
     default: null, 
   },
 }, { timestamps: true });
+
 
 export default mongoose.models.Snippet || mongoose.model('Snippet', SnippetSchema);

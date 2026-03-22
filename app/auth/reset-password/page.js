@@ -4,6 +4,7 @@ import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Notification from "@/app/components/Notification";
+import "../auth-forms.css";
 
 function ResetPasswordForm() {
     const router = useRouter();
@@ -45,24 +46,29 @@ function ResetPasswordForm() {
 
     if (!token) {
         return (
-            <div className="nes-container is-rounded" style={{ background: '#fff', padding: '20px', textAlign: 'center' }}>
-                <p className="nes-text is-error">INVALID OR EXPIRED TOKEN</p>
-                <Link href="/auth/signin" className="nes-btn is-primary" style={{ marginTop: '20px' }}>BACK TO LOGIN</Link>
+            <div className="auth-form-card">
+                <div className="auth-error-container">
+                    <p className="auth-error-message">⚠️ INVALID OR EXPIRED TOKEN</p>
+                    <Link href="/auth/signin" className="auth-submit-btn primary auth-error-link">
+                        BACK TO LOGIN
+                    </Link>
+                </div>
             </div>
         );
     }
 
     return (
-        <div style={{ maxWidth: '400px', width: '100%', margin: '0 auto' }}>
-            <div className="nes-container is-rounded" style={{ background: '#fff', padding: '20px' }}>
-                <h2 style={{ fontSize: '18px', textAlign: 'center', marginBottom: '30px' }}>RESET PASSWORD</h2>
+        <div className="auth-form-container">
+            <div className="auth-form-card">
+                <div className="auth-form-header">
+                    <h2 className="auth-form-title">🔐 RESET PASSWORD</h2>
+                </div>
 
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                    <div className="nes-field">
-                        <label style={{ fontSize: '12px' }}>NEW PASSWORD</label>
+                <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="auth-field">
+                        <label>NEW PASSWORD</label>
                         <input
                             type="password"
-                            className="nes-input"
                             placeholder="••••••••"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -70,11 +76,10 @@ function ResetPasswordForm() {
                         />
                     </div>
 
-                    <div className="nes-field">
-                        <label style={{ fontSize: '12px' }}>CONFIRM PASSWORD</label>
+                    <div className="auth-field">
+                        <label>CONFIRM PASSWORD</label>
                         <input
                             type="password"
-                            className="nes-input"
                             placeholder="••••••••"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -84,9 +89,8 @@ function ResetPasswordForm() {
 
                     <button
                         type="submit"
-                        className={`nes-btn ${isLoading ? 'is-disabled' : 'is-primary'}`}
+                        className={`auth-submit-btn primary ${isLoading ? 'disabled' : ''}`}
                         disabled={isLoading}
-                        style={{ marginTop: '10px', fontSize: '12px' }}
                     >
                         {isLoading ? "UPDATING..." : "UPDATE PASSWORD"}
                     </button>
@@ -94,10 +98,10 @@ function ResetPasswordForm() {
             </div>
 
             {notification && (
-                <Notification 
-                    message={notification.message} 
-                    type={notification.type} 
-                    onClose={() => setNotification(null)} 
+                <Notification
+                    message={notification.message}
+                    type={notification.type}
+                    onClose={() => setNotification(null)}
                 />
             )}
         </div>
@@ -106,15 +110,8 @@ function ResetPasswordForm() {
 
 export default function ResetPasswordPage() {
     return (
-        <div style={{ 
-            minHeight: '100vh', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            background: 'var(--sky-blue)',
-            padding: '20px'
-        }}>
-            <Suspense fallback={<div>LOADING...</div>}>
+        <div className="auth-page">
+            <Suspense fallback={<div className="auth-loading">LOADING...</div>}>
                 <ResetPasswordForm />
             </Suspense>
         </div>

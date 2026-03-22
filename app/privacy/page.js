@@ -25,6 +25,12 @@ export default function Privacy() {
             <p style={{ fontFamily: 'sans-serif', lineHeight: '1.6', marginBottom: '16px' }}>
                 The application is hosted on Vercel. Please refer to Vercel's privacy policy for information regarding their infrastructure.
             </p>
+
+            <h2 style={{ fontSize: '18px', marginTop: '32px', marginBottom: '16px' }}>4. Temporary Data Policy</h2>
+            <p style={{ fontFamily: 'sans-serif', lineHeight: '1.6', marginBottom: '16px' }}>
+                Items created by guest users (non-registered) are considered temporary and public. These items (files and snippets) are automatically deleted from our servers and storage 24 hours after their creation. Registered users have persistent storage for their private items.
+            </p>
+
         </div>
     );
 }

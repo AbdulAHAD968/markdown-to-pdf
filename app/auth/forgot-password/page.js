@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Notification from "@/app/components/Notification";
+import "../auth-forms.css";
 
 export default function ForgotPasswordPage() {
     const [email, setEmail] = useState("");
@@ -20,9 +21,9 @@ export default function ForgotPasswordPage() {
             });
 
             if (res.ok) {
-                setNotification({ 
-                    message: "IF AN ACCOUNT EXISTS, A RECOVERY LINK HAS BEEN SENT.", 
-                    type: "success" 
+                setNotification({
+                    message: "IF AN ACCOUNT EXISTS, A RECOVERY LINK HAS BEEN SENT.",
+                    type: "success"
                 });
             } else {
                 setNotification({ message: "COULD NOT PROCESS REQUEST", type: "error" });
@@ -34,30 +35,22 @@ export default function ForgotPasswordPage() {
         }
     };
 
-
     return (
-        <div style={{ 
-            minHeight: '100vh', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            background: 'var(--sky-blue)',
-            padding: '20px'
-        }}>
-            <div style={{ maxWidth: '400px', width: '100%' }}>
-                <div className="nes-container is-rounded" style={{ background: '#fff', padding: '20px' }}>
-                    <h2 style={{ fontSize: '18px', textAlign: 'center', marginBottom: '30px' }}>LOST KEY?</h2>
-                    
-                    <p style={{ fontSize: '10px', color: '#666', marginBottom: '20px', lineHeight: '1.5' }}>
-                        ENTER YOUR EMAIL TO RECEIVE A RECOVERY LINK.
-                    </p>
+        <div className="auth-page">
+            <div className="auth-form-container">
+                <div className="auth-form-card">
+                    <div className="auth-form-header">
+                        <h2 className="auth-form-title">🔑 LOST KEY?</h2>
+                        <p className="auth-form-description">
+                            ENTER YOUR EMAIL TO RECEIVE A RECOVERY LINK.
+                        </p>
+                    </div>
 
-                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                        <div className="nes-field">
-                            <label style={{ fontSize: '12px' }}>EMAIL</label>
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div className="auth-field">
+                            <label>EMAIL</label>
                             <input
                                 type="email"
-                                className="nes-input"
                                 placeholder="your@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -67,16 +60,15 @@ export default function ForgotPasswordPage() {
 
                         <button
                             type="submit"
-                            className={`nes-btn ${isLoading ? 'is-disabled' : 'is-primary'}`}
+                            className={`auth-submit-btn primary ${isLoading ? 'disabled' : ''}`}
                             disabled={isLoading}
-                            style={{ marginTop: '10px', fontSize: '12px' }}
                         >
                             {isLoading ? "SENDING..." : "RECOVER"}
                         </button>
                     </form>
 
-                    <div style={{ marginTop: '30px', textAlign: 'center' }}>
-                        <Link href="/auth/signin" style={{ fontSize: '10px', color: '#049CD8', textDecoration: 'none' }}>
+                    <div className="auth-links">
+                        <Link href="/auth/signin" className="auth-link primary">
                             BACK TO LOGIN
                         </Link>
                     </div>
@@ -84,10 +76,10 @@ export default function ForgotPasswordPage() {
             </div>
 
             {notification && (
-                <Notification 
-                    message={notification.message} 
-                    type={notification.type} 
-                    onClose={() => setNotification(null)} 
+                <Notification
+                    message={notification.message}
+                    type={notification.type}
+                    onClose={() => setNotification(null)}
                 />
             )}
         </div>

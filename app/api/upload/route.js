@@ -35,6 +35,8 @@ export async function POST(req) {
     });
 
     await dbConnect();
+    const expiresAt = !session?.user?.id ? new Date(Date.now() + 24 * 60 * 60 * 1000) : null;
+    
     const metadata = await FileMetadata.create({
       fileName: file.name,
       fileUrl: uploadResponse.secure_url,
@@ -44,7 +46,9 @@ export async function POST(req) {
       size: file.size,
       authorId: session?.user?.id || null,
       visibility: visibility,
+      expiresAt: expiresAt,
     });
+
 
     return NextResponse.json(metadata);
   } catch (error) {
@@ -62,8 +66,12 @@ export async function GET(req) {
     const query = {
       $or: [
         { visibility: 'public' }
+      ],
+      $and: [
+        { $or: [{ expiresAt: null }, { expiresAt: { $gt: new Date() } }] }
       ]
     };
+
 
     if (session?.user?.id) {
       query.$or.push({ authorId: session.user.id });
