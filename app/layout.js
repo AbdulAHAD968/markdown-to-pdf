@@ -14,6 +14,12 @@ export const metadata = {
   keywords: ['markdown to pdf', 'html to pdf', 'pdf converter', 'retro pdf', 'super mario theme', 'serverless pdf', 'puppeteer'],
   authors: [{ name: 'Abdul Ahad', url: 'https://github.com/AbdulAHAD968' }],
   creator: 'Abdul Ahad',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   openGraph: {
     title: 'Super PDF World',
     description: 'Convert Markdown and HTML to PDF with style. It\'s-a me, PDF!',

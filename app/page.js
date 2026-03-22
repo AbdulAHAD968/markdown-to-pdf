@@ -7,7 +7,7 @@ export const metadata = {
 export default function Home() {
     return (
         <div className="world-select-container">
-            {/* Decorative Mario Elements */}
+            
             <div className="mario-clouds">
                 <div className="cloud cloud-1">☁️</div>
                 <div className="cloud cloud-2">☁️</div>

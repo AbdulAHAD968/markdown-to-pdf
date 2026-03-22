@@ -1,13 +1,17 @@
 @import 'github-markdown-css/github-markdown-light.css';
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --mario-red: #DC143C;
   --mario-green: #2E8B57;
   --mario-blue: #4682B4;
   --mario-yellow: #F4C542;
   --mario-orange: #E67E22;
-  --sky-blue: #87CEEB;
+  --sky-blue: #f70b3a;
 
   --ground-brown: #E4935D;
   --brick-color: #B45F3D;
@@ -26,8 +30,9 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  
-  
+  overflow-x: hidden;
+  width: 100%;
+
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
@@ -95,8 +100,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
   gap: 24px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 
@@ -268,6 +276,8 @@ textarea.editor {
   width: 100%;
   position: relative;
   min-height: calc(100vh - 80px);
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Mario Clouds Animation */
@@ -482,22 +492,6 @@ textarea.editor {
   font-size: 16px;
 }
 
-@media (max-width: 480px) {
-  .level-card {
-    width: 100%;
-    padding: 16px;
-  }
-
-  .world-title {
-    font-size: 1.8rem;
-    padding: 0.5rem 1rem;
-  }
-}
-
-.level-card:hover {
-  transform: translateY(-8px);
-}
-
 .level-icon {
   font-size: 4rem;
 }
@@ -636,8 +630,8 @@ textarea.editor {
 @media (max-width: 768px) {
   /* Home page */
   .world-select-container {
-    padding: 20px 16px 80px !important;
-    gap: 20px !important;
+    padding: 20px 16px 40px !important;
+    gap: 18px !important;
     min-height: auto;
   }
 
@@ -647,8 +641,8 @@ textarea.editor {
   }
 
   .world-title {
-    font-size: 1.4rem !important;
-    padding: 0.75rem 1.25rem !important;
+    font-size: 1.5rem !important;
+    padding: 0.8rem 1.4rem !important;
     text-align: center;
   }
 
@@ -665,26 +659,26 @@ textarea.editor {
   }
 
   .section-label-title {
-    font-size: 11px !important;
+    font-size: 12px !important;
   }
 
   .section-subtitle {
-    font-size: 8px !important;
+    font-size: 9px !important;
   }
 
   .level-select {
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 16px;
     padding: 0 4px;
   }
 
   .level-card {
-    min-height: 140px !important;
-    padding: 16px !important;
+    min-height: 150px !important;
+    padding: 18px !important;
   }
 
   .level-icon {
-    font-size: 2.5rem !important;
+    font-size: 2.8rem !important;
   }
 
   .level-title {
@@ -692,11 +686,11 @@ textarea.editor {
   }
 
   .level-description {
-    font-size: 14px !important;
+    font-size: 15px !important;
   }
 
   .mario-divider {
-    margin: 30px 0;
+    margin: 24px 0;
     gap: 12px;
   }
 
@@ -705,12 +699,13 @@ textarea.editor {
   }
 
   .start-prompt {
-    font-size: 9px !important;
-    gap: 8px;
+    font-size: 10px !important;
+    gap: 10px;
+    margin-bottom: 20px;
   }
 
   .prompt-arrow {
-    font-size: 12px !important;
+    font-size: 13px !important;
   }
 
   /* Editor mode: allow scrolling on mobile */
@@ -800,26 +795,185 @@ textarea.editor {
    RESPONSIVE — MOBILE (≤480px)
    ============================================ */
 @media (max-width: 480px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   .world-select-container {
-    padding: 16px 12px 80px !important;
+    padding: 12px 8px 30px !important;
+    gap: 14px !important;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .world-title-wrapper {
-    gap: 8px;
+    gap: 6px;
+    margin-bottom: 10px;
+    width: 100%;
   }
 
   .world-title {
     font-size: 0.9rem !important;
-    padding: 0.5rem 0.75rem !important;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5) !important;
+    padding: 0.5rem 0.8rem !important;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    text-shadow: 2px 2px 0 #000 !important;
+    max-width: calc(100vw - 60px);
+    word-break: break-word;
   }
 
   .coin-decoration {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
 
   .cloud {
     font-size: 1.5rem !important;
+  }
+
+  .section-wrapper {
+    margin-bottom: 12px;
+    width: 100%;
+  }
+
+  .section-header {
+    margin-bottom: 10px;
+    padding: 0 2px;
+  }
+
+  .section-label-title {
+    font-size: 9px !important;
+    letter-spacing: 0.3px;
+  }
+
+  .section-subtitle {
+    font-size: 7px !important;
+  }
+
+  .level-select {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    width: 100%;
+  }
+
+  .level-card {
+    min-height: 110px !important;
+    padding: 12px 8px !important;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 4px 4px 0 #000 !important;
+  }
+
+  .level-card:hover {
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 6px 6px 0 #000 !important;
+  }
+
+  .level-icon {
+    font-size: 2rem !important;
+  }
+
+  .level-title {
+    font-size: 8px !important;
+    line-height: 1.2;
+  }
+
+  .level-description {
+    font-size: 11px !important;
+  }
+
+  .mario-divider {
+    margin: 16px 0;
+    gap: 8px;
+  }
+
+  .divider-brick {
+    font-size: 1.2rem !important;
+  }
+
+  .start-prompt {
+    font-size: 7px !important;
+    gap: 6px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+
+  .prompt-arrow {
+    font-size: 10px !important;
+  }
+
+  /* Header compact */
+  .header {
+    height: auto !important;
+    min-height: 52px;
+    padding: 8px 10px !important;
+  }
+
+  .logo {
+    gap: 6px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Footer */
+  footer {
+    padding: 14px 10px !important;
+  }
+
+  /* Global button size reduction */
+  .nes-btn {
+    font-size: 8px !important;
+    padding: 7px 10px !important;
+  }
+
+  /* Warp pipe emoji — hide on very small screens */
+  .warp-pipe-deco {
+    display: none !important;
+  }
+
+  /* URL page input */
+  .url-input-wrapper input {
+    font-size: 11px !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — SPECIFIC FIX FOR 400-420px
+   ============================================ */
+@media (max-width: 420px) and (min-width: 400px) {
+  .world-select-container {
+    padding: 10px 6px 30px !important;
+  }
+
+  .level-select {
+    gap: 6px !important;
+  }
+
+  .level-card {
+    padding: 10px 6px !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — EXTRA SMALL MOBILE (≤360px)
+   ============================================ */
+@media (max-width: 360px) {
+  .world-select-container {
+    padding: 10px 8px 30px !important;
+    gap: 12px !important;
+  }
+
+  .world-title {
+    font-size: 0.85rem !important;
+    padding: 0.5rem 0.8rem !important;
+  }
+
+  .coin-decoration {
+    font-size: 1.2rem !important;
   }
 
   .section-label-title {
@@ -831,17 +985,16 @@ textarea.editor {
   }
 
   .level-select {
-    grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
 
   .level-card {
-    min-height: 110px !important;
-    padding: 12px 8px !important;
+    min-height: 105px !important;
+    padding: 10px 8px !important;
   }
 
   .level-icon {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
   }
 
   .level-title {
@@ -849,66 +1002,26 @@ textarea.editor {
   }
 
   .level-description {
-    font-size: 12px !important;
+    font-size: 11px !important;
   }
 
   .mario-divider {
-    margin: 24px 0;
+    margin: 16px 0;
     gap: 8px;
   }
 
   .divider-brick {
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
   }
 
   .start-prompt {
     font-size: 7px !important;
     gap: 6px;
-    margin-top: 24px;
+    margin-top: 12px;
+    margin-bottom: 16px;
   }
 
   .prompt-arrow {
-    font-size: 10px !important;
-  }
-
-  .mario-ground {
-    height: 40px;
-    padding: 0 10px;
-  }
-
-  .bush {
-    font-size: 1.2rem !important;
-  }
-
-  /* Header compact */
-  .header {
-    height: auto !important;
-    min-height: 52px;
-    padding: 8px 12px !important;
-  }
-
-  .logo {
-    gap: 8px !important;
-  }
-
-  /* Footer */
-  footer {
-    padding: 16px 12px !important;
-  }
-
-  /* Global button size reduction */
-  .nes-btn {
-    font-size: 8px !important;
-    padding: 6px 10px !important;
-  }
-
-  /* Warp pipe emoji — hide on very small screens */
-  .warp-pipe-deco {
-    display: none !important;
-  }
-
-  /* URL page input */
-  .url-input-wrapper input {
-    font-size: 12px !important;
+    font-size: 9px !important;
   }
 }
