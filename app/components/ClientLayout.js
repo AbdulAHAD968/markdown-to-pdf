@@ -8,7 +8,7 @@ export default function ClientLayout({ children }) {
     const pathname = usePathname();
 
 
-    const isEditorPage = pathname.startsWith("/markdown") || pathname.startsWith("/html") || pathname.startsWith("/url") || pathname.startsWith("/ipynb");
+    const isEditorPage = pathname.startsWith("/markdown") || pathname.startsWith("/html") || pathname.startsWith("/url") || pathname.startsWith("/ipynb") || pathname.startsWith("/warp-box") || pathname.startsWith("/toads-paste") || pathname.startsWith("/p");
 
     return (
         <div className={`app-container ${isEditorPage ? 'editor-mode' : ''}`}>

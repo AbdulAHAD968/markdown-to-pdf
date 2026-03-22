@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import AuthButton from "./AuthButton";
+
 export default function Header() {
     return (
         <nav className="header" style={{
@@ -8,7 +10,11 @@ export default function Header() {
             boxShadow: '0 4px 0 rgba(0,0,0,0.2)',
             padding: '0 24px',
             margin: '0',
-            zIndex: 10
+            zIndex: 10,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            height: '60px'
         }}>
             <div className="logo">
                 <Link href="/" style={{
@@ -37,7 +43,8 @@ export default function Header() {
                     </div>
                 </Link>
             </div>
-            <div style={{ display: 'flex', gap: '16px' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                <AuthButton />
                 <a href="https://github.com/AbdulAHAD968" target="_blank" className="nes-btn is-primary" style={{
                     padding: '8px 16px',
                     fontSize: '10px',
