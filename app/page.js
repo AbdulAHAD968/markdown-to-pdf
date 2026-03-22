@@ -6,68 +6,96 @@ export const metadata = {
 
 export default function Home() {
     return (
-        <div className="world-select-container" style={{ padding: '20px', maxWidth: '1000px', margin: '40px auto 0 auto' }}>
-            <div className="world-title" style={{ fontSize: '2.5rem', marginBottom: '40px' }}>
-                SUPER PDF WORLD
+        <div className="world-select-container">
+            {/* Decorative Mario Elements */}
+            <div className="mario-clouds">
+                <div className="cloud cloud-1">☁️</div>
+                <div className="cloud cloud-2">☁️</div>
+                <div className="cloud cloud-3">☁️</div>
             </div>
 
-            
-            <div style={{ width: '100%', textAlign: 'left', marginBottom: '20px' }}>
-                <div className="section-label-title" style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 1-3: PDF POWER-UPS</div>
-                <div style={{ fontSize: '8px', color: '#fff', marginTop: '5px' }}>CONVERT TEXT, CODE, AND WEBSITES TO PDF</div>
-            </div>
-            
-            <div className="level-select">
-                <Link href="/markdown" className="level-card" style={{ width: '100%', minHeight: '150px' }}>
-                    <div className="level-icon">📝</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '12px' }}>1-1: MARKDOWN</div>
-                    <div style={{ fontSize: '8px', opacity: 0.7, textTransform: 'none' }}>Text to Pro PDF</div>
-                </Link>
-
-                <Link href="/html" className="level-card" style={{ width: '100%', minHeight: '150px' }}>
-                    <div className="level-icon">🌐</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '12px' }}>1-2: HTML</div>
-                    <div style={{ fontSize: '8px', opacity: 0.7, textTransform: 'none' }}>HTML to PDF</div>
-                </Link>
-
-                <Link href="/url" className="level-card" style={{ width: '100%', minHeight: '150px', boxShadow: '8px 8px 0 var(--mario-blue)' }}>
-                    <div className="level-icon">管</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '12px' }}>2-1: WARP PIPE</div>
-                    <div style={{ fontSize: '8px', opacity: 0.7, textTransform: 'none' }}>URL to PDF</div>
-                </Link>
-
-                <Link href="/ipynb" className="level-card" style={{ width: '100%', minHeight: '150px', boxShadow: '8px 8px 0 var(--mario-green)' }}>
-                    <div className="level-icon">🧪</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '12px' }}>3-1: JUPYTER</div>
-                    <div style={{ fontSize: '8px', opacity: 0.7, textTransform: 'none' }}>Notebook to PDF</div>
-                </Link>
+            <div className="world-title-wrapper">
+                <div className="coin-decoration">🪙</div>
+                <div className="world-title">
+                    SUPER PDF WORLD
+                </div>
+                <div className="coin-decoration">🪙</div>
             </div>
 
-            
-            <hr className="nes-hr" style={{ margin: '40px 0', width: '100%' }} />
+            <div className="section-wrapper">
+                <div className="section-header">
+                    <div className="section-label-title">LEVEL 1-3: PDF POWER-UPS</div>
+                    <div className="section-subtitle">CONVERT TEXT, CODE, AND WEBSITES TO PDF</div>
+                </div>
 
-            
-            <div style={{ width: '100%', textAlign: 'left', marginBottom: '20px' }}>
-                <div className="section-label-title" style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 4: COMMUNITY UTILITIES</div>
-                <div style={{ fontSize: '8px', color: '#fff', marginTop: '5px' }}>STORE AND SHARE FILES OR SNIPPETS</div>
+                <div className="level-select">
+                    <Link href="/markdown" className="level-card level-card-red">
+                        <div className="card-inner">
+                            <div className="level-icon">📝</div>
+                            <div className="level-title">1-1: MARKDOWN</div>
+                            <div className="level-description">Text to Pro PDF</div>
+                        </div>
+                    </Link>
+
+                    <Link href="/html" className="level-card level-card-red">
+                        <div className="card-inner">
+                            <div className="level-icon">🌐</div>
+                            <div className="level-title">1-2: HTML</div>
+                            <div className="level-description">HTML to PDF</div>
+                        </div>
+                    </Link>
+
+                    <Link href="/url" className="level-card level-card-blue">
+                        <div className="card-inner">
+                            <div className="level-icon">🔵</div>
+                            <div className="level-title">2-1: WARP PIPE</div>
+                            <div className="level-description">URL to PDF</div>
+                        </div>
+                    </Link>
+
+                    <Link href="/ipynb" className="level-card level-card-green">
+                        <div className="card-inner">
+                            <div className="level-icon">🧪</div>
+                            <div className="level-title">3-1: JUPYTER</div>
+                            <div className="level-description">Notebook to PDF</div>
+                        </div>
+                    </Link>
+                </div>
             </div>
 
-            <div className="level-select">
-                <Link href="/warp-box" className="level-card" style={{ width: '100%', minHeight: '150px', boxShadow: '8px 8px 0 var(--mario-orange)' }}>
-                    <div className="level-icon">📦</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '12px' }}>4-1: WARP BOX</div>
-                    <div style={{ fontSize: '8px', opacity: 0.7, textTransform: 'none' }}>Cloud Storage</div>
-                </Link>
-
-                <Link href="/toads-paste" className="level-card" style={{ width: '100%', minHeight: '150px', boxShadow: '8px 8px 0 var(--mario-yellow)' }}>
-                    <div className="level-icon">📋</div>
-                    <div style={{ fontWeight: 'bold', fontSize: '12px' }}>4-2: TOAD'S PASTE</div>
-                    <div style={{ fontSize: '8px', opacity: 0.7, textTransform: 'none' }}>Pastebin & Snippets</div>
-                </Link>
+            <div className="mario-divider">
+                <span className="divider-brick">🟫</span>
+                <span className="divider-brick">🟫</span>
+                <span className="divider-brick">🟫</span>
             </div>
 
-            <div style={{ marginTop: '3rem', fontSize: '10px', textTransform: 'uppercase', opacity: 0.7, color: '#fff' }}>
-                SELECT A WORLD TO START
+            <div className="section-wrapper">
+                <div className="section-header">
+                    <div className="section-label-title">LEVEL 4: COMMUNITY UTILITIES</div>
+                    <div className="section-subtitle">STORE AND SHARE FILES OR SNIPPETS</div>
+                </div>
+
+                <div className="level-select">
+                    <Link href="/warp-box" className="level-card level-card-orange">
+                        <div className="card-inner">
+                            <div className="level-icon">📦</div>
+                            <div className="level-title">4-1: WARP BOX</div>
+                            <div className="level-description">Cloud Storage</div>
+                        </div>
+                    </Link>
+
+                    <Link href="/toads-paste" className="level-card level-card-yellow">
+                        <div className="card-inner">
+                            <div className="level-icon">📋</div>
+                            <div className="level-title">4-2: TOAD'S PASTE</div>
+                            <div className="level-description">Pastebin & Snippets</div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+
+            <div className="start-prompt">
+                <span className="prompt-arrow">▶</span> SELECT A WORLD TO START <span className="prompt-arrow">◀</span>
             </div>
         </div>
     );
