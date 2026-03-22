@@ -14,7 +14,7 @@ export default function WarpBox() {
   const [copiedId, setCopiedId] = useState(null);
   const [visibility, setVisibility] = useState("public");
 
-  // Custom UI States
+  
   const [notification, setNotification] = useState(null);
   const [modal, setModal] = useState({ show: false, id: null });
 
@@ -93,7 +93,7 @@ export default function WarpBox() {
 
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: '#5c94fc' }}>
-      {/* Header Bar */}
+      
       <div style={{
         padding: '15px 24px',
         background: '#fff',
@@ -128,7 +128,7 @@ export default function WarpBox() {
       </div>
 
       <main style={{ flex: 1, padding: '30px', overflowY: 'auto', position: 'relative' }}>
-        {/* Guest Banner */}
+        
         {!session && (
           <div className="nes-container is-rounded is-dark" style={{ marginBottom: '30px', textAlign: 'center', padding: '10px' }}>
             <p style={{ fontSize: '10px', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
@@ -138,7 +138,7 @@ export default function WarpBox() {
           </div>
         )}
 
-        {/* File Grid/Table Container */}
+        
         <div className="nes-container is-rounded" style={{ background: '#fff', padding: '20px' }}>
           <div className="pane-header" style={{ marginBottom: '20px', background: '#212529', color: '#fff', padding: '8px', fontSize: '12px' }}>
             INVENTORY ({files.length} ITEMS)
@@ -216,7 +216,7 @@ export default function WarpBox() {
         </div>
       </main>
 
-      {/* Popups */}
+      
       {notification && (
         <Notification 
           message={notification.message} 
@@ -234,7 +234,7 @@ export default function WarpBox() {
         />
       )}
 
-      {/* Decorative Elements */}
+      
       <div style={{ position: 'fixed', bottom: '20px', right: '20px', fontSize: '3rem', opacity: 0.2, zIndex: 0 }}>🍄</div>
       <div style={{ position: 'fixed', bottom: '40px', left: '40px', fontSize: '2rem', opacity: 0.1, zIndex: 0 }}>⭐</div>
     </div>

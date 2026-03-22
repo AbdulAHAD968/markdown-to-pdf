@@ -37,7 +37,7 @@ export default function JupyterWorld() {
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
-        JSON.parse(event.target.result); // Validate JSON
+        JSON.parse(event.target.result); 
         setNotebook(event.target.result);
         setFileName(file.name);
       } catch (e) {
@@ -212,7 +212,7 @@ export default function JupyterWorld() {
           )}
         </div>
         
-        {/* Decorative elements */}
+        
         <div style={{ position: 'absolute', bottom: '20px', left: '20px', fontSize: '3rem' }}>🧪</div>
         <div style={{ position: 'absolute', bottom: '20px', right: '20px', fontSize: '3rem' }}>🔬</div>
       </main>

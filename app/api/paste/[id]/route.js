@@ -13,8 +13,8 @@ export async function GET(req, { params }) {
       return NextResponse.json({ error: 'Snippet not found' }, { status: 404 });
     }
 
-    // If private, we should check authorId, but for now let's focus on basic functionality
-    // Public snippets are accessible by anyone with the link.
+    
+    
     
     return NextResponse.json(snippet);
   } catch (error) {
@@ -25,7 +25,7 @@ export async function GET(req, { params }) {
 export async function DELETE(req, { params }) {
   try {
     const { id } = await params;
-    // const session = await auth(); // Add auth check if needed
+    
     await dbConnect();
     await Snippet.findByIdAndDelete(id);
     return NextResponse.json({ success: true });

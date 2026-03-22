@@ -13,7 +13,7 @@ export default function ForgotPasswordPage() {
         e.preventDefault();
         setIsLoading(true);
         try {
-            // Mock API call
+            
             await new Promise(resolve => setTimeout(resolve, 1500));
             setNotification({ 
                 message: "IF AN ACCOUNT EXISTS, A RECOVERY LINK HAS BEEN SENT.", 

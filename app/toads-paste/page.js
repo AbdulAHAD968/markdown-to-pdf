@@ -16,7 +16,7 @@ export default function ToadsPaste() {
   const [copiedId, setCopiedId] = useState(null);
   const [visibility, setVisibility] = useState("public");
 
-  // Custom UI States
+  
   const [notification, setNotification] = useState(null);
   const [modal, setModal] = useState({ show: false, id: null });
 
@@ -97,7 +97,7 @@ export default function ToadsPaste() {
 
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', background: '#ffccbb' }}>
-      {/* Header Bar */}
+      
       <div style={{
         padding: '15px 24px',
         background: '#fff',
@@ -136,7 +136,7 @@ export default function ToadsPaste() {
       </div>
 
       <main style={{ flex: 1, display: 'flex', overflow: 'hidden', padding: '20px', gap: '20px' }}>
-        {/* Editor Side */}
+        
         <section style={{ flex: 3, display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <div className="nes-container is-rounded with-title" style={{ background: '#fff', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <p className="title">NEW SNIPPET</p>
@@ -158,7 +158,7 @@ export default function ToadsPaste() {
           </div>
         </section>
 
-        {/* List Side */}
+        
         <section style={{ flex: 1.5, display: 'flex', flexDirection: 'column' }}>
           <div className="nes-container is-rounded with-title" style={{ background: '#fff', flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: '10px' }}>
             <p className="title">PASTES</p>
@@ -206,7 +206,7 @@ export default function ToadsPaste() {
         </section>
       </main>
 
-      {/* Popups */}
+      
       {notification && (
         <Notification 
           message={notification.message} 

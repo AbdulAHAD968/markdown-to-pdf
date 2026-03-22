@@ -20,8 +20,8 @@ const FileMetadataSchema = new mongoose.Schema({
     type: Number,
   },
   authorId: {
-    type: String, // User ID from NextAuth or session
-    default: null, // null for guest
+    type: String, 
+    default: null, 
   },
   resourceType: {
     type: String,

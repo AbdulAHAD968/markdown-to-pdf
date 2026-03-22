@@ -11,7 +11,7 @@ export default function Home() {
                 SUPER PDF WORLD
             </div>
 
-            {/* CATEGORY 1: PDF POWER-UPS */}
+            
             <div style={{ width: '100%', textAlign: 'left', marginBottom: '20px' }}>
                 <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 1-3: PDF POWER-UPS</div>
                 <div style={{ fontSize: '8px', color: '#fff', marginTop: '5px' }}>CONVERT TEXT, CODE, AND WEBSITES TO PDF</div>
@@ -43,10 +43,10 @@ export default function Home() {
                 </Link>
             </div>
 
-            {/* DIVIDER */}
+            
             <hr className="nes-hr" style={{ margin: '40px 0', width: '100%' }} />
 
-            {/* CATEGORY 2: COMMUNITY KINGDOM */}
+            
             <div style={{ width: '100%', textAlign: 'left', marginBottom: '20px' }}>
                 <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#fff', textShadow: '2px 2px 0 #000' }}>LEVEL 4: COMMUNITY UTILITIES</div>
                 <div style={{ fontSize: '8px', color: '#fff', marginTop: '5px' }}>STORE AND SHARE FILES OR SNIPPETS</div>

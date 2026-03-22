@@ -14,8 +14,8 @@ const SnippetSchema = new mongoose.Schema({
     default: 'text',
   },
   authorId: {
-    type: String, // User ID from NextAuth or session
-    default: null, // null for guest
+    type: String, 
+    default: null, 
   },
   visibility: {
     type: String,
@@ -24,7 +24,7 @@ const SnippetSchema = new mongoose.Schema({
   },
   expiresAt: {
     type: Date,
-    default: null, // null means never
+    default: null, 
   },
 }, { timestamps: true });
 

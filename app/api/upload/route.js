@@ -15,7 +15,7 @@ export async function POST(req) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    // 200MB Limit: 200 * 1024 * 1024 = 209,715,200
+    
     const MAX_SIZE = 209715200;
     if (file.size > MAX_SIZE) {
       return NextResponse.json({ error: 'FILE SIZE EXCEEDS 200MB LIMIT' }, { status: 400 });
@@ -23,7 +23,7 @@ export async function POST(req) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
     
-    // Upload to Cloudinary
+    
     const uploadResponse = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream({
         resource_type: 'auto',
@@ -39,7 +39,7 @@ export async function POST(req) {
       fileName: file.name,
       fileUrl: uploadResponse.secure_url,
       publicId: uploadResponse.public_id,
-      resourceType: uploadResponse.resource_type, // Crucial for deletion
+      resourceType: uploadResponse.resource_type, 
       fileType: file.type,
       size: file.size,
       authorId: session?.user?.id || null,
@@ -58,7 +58,7 @@ export async function GET(req) {
     const session = await auth();
     await dbConnect();
     
-    // Find files that are public OR belong to the current user
+    
     const query = {
       $or: [
         { visibility: 'public' }
