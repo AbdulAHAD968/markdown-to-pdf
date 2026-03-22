@@ -13,7 +13,7 @@ export async function POST(req) {
 
         await dbConnect();
 
-        // Find user with valid token and not expired
+        
         const user = await User.findOne({
             resetToken: token,
             resetTokenExpiry: { $gt: Date.now() },
@@ -23,10 +23,10 @@ export async function POST(req) {
             return NextResponse.json({ error: "INVALID OR EXPIRED TOKEN" }, { status: 400 });
         }
 
-        // Hash new password
+        
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Update user
+        
         user.password = hashedPassword;
         user.resetToken = undefined;
         user.resetTokenExpiry = undefined;

@@ -30,7 +30,7 @@ export async function POST(req) {
         user.resetTokenExpiry = resetTokenExpiry;
         await user.save();
 
-        // Send Email
+        
         try {
             await sendResetPasswordEmail(user.email, resetToken);
         } catch (mailError) {
